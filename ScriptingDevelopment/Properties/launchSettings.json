@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ScriptingDevelopment": {
+      "commandName": "Project",
+      "commandLineArgs": "StartEnd WageTypesReport WageTypesReportQueries.json WageTypesReportResults.json"
+    }
+  }
+}

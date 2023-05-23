@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ImportExchangeData": {
+      "commandName": "Project",
+      "commandLineArgs": "SimplePayroll Cases.json"
+    }
+  }
+}

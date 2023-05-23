@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PayrollEngine.Client.Tutorial.BuildDataQuery</RootNamespace>
+    <Product>Build Data Query Tutorial</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PayrollEngine.Client.Services" Version="0.5.0-pre-230523-2" />
+    <PackageReference Include="PayrollEngine.Serilog" Version="0.5.0-pre-230523-2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

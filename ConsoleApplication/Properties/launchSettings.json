@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleApplication": {
+      "commandName": "Project",
+      "commandLineArgs": "https://localhost 44354"
+    }
+  }
+}

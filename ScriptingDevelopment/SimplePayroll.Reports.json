@@ -1,0 +1,39 @@
+{
+  "tenants": [
+    {
+      "description": "Extraction of simple payroll",
+      "identifier": "SimplePayroll",
+      "regulations": [
+        {
+          "name": "SimplePayroll",
+          "reports": [
+            {
+              "name": "WageTypesReport",
+              "queries": {
+                "Regulations": "QueryRegulations"
+              },
+              "parameters": [
+                {
+                  "name": "TenantId",
+                  "valueType": "Integer",
+                  "parameterType": "TenantId"
+                },
+                {
+                  "name": "RegulationId",
+                  "valueType": "Integer",
+                  "parameterType": "RegulationId",
+                  "mandatory": true
+                },
+                {
+                  "name": "Regulations.Filter",
+                  "value": "Id eq $RegulationId$",
+                  "valueType": "Integer"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

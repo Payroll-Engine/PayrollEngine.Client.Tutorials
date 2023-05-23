@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ExtendedObjectModel": {
+      "commandName": "Project",
+      "commandLineArgs": "SimplePayroll F37D1B9B-944F-44FA-BF4C-61F4EE502205"
+    }
+  }
+}

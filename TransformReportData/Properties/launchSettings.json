@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TransformReportData": {
+      "commandName": "Project",
+      "commandLineArgs": "SimplePayroll SimplePayroll.Derived1"
+    }
+  }
+}

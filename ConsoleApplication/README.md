@@ -1,0 +1,104 @@
+# Payroll Engine Client Tutorials - Console Application
+
+## Overview
+
+Tutorial topic: How to create a payroll client with a console application
+
+## Prerequisites
+
+- Payroll Engine Backend running
+- Visual Studio with .NET 7
+- Client services tutorial: Hello Payroll Engine World!
+
+## Learnings
+
+- Console program template
+- Error handling
+- Logging
+- Application Configuration
+- Culture setup
+- Command line arguments
+
+## Notes
+- Welcome - tutorial slide
+	- How to build an Payroll Engine console application
+		- same function as the hello Payroll Engine world tutorial
+	- Prerequisites
+	- Learnings
+	- Different aspects, for any type of Payroll Engine client software
+- Visual Studio
+	- Tutorial project ConsoleApplication.csproj
+	- Tutorial notes in project folder README.md
+	- Run the application
+- ConsoleProgram<TApp>
+	- Best practices for console application (HTML Help)
+	- Base for Payroll Console and Report Console
+	- Lifecycle
+		- Program title UI
+		- Backend connection
+		- Initialize
+			- Run
+		- Shutdown
+	- Log, error handling, Application configuration and Culture setup
+- Async programming
+	- "Increase the performance and responsiveness of your application"
+	- async/await
+		- Program Main
+	- All Payroll Engine client services are async
+	- Use methods in non-async mode
+		- without return value: return Task.CompletedTask;
+		- with return value: return Task.FromResult(value);
+	- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+- Error handling
+	- try/catch/finally
+	- minimal error handling (log, no user interaction)
+	- throw on top level, otherwise rethrow with inner exception
+	- nested exceptions
+		- consider root exception
+		- GetBaseException/GetBaseMessage
+	- https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/
+- Logging
+	- log warnings and errors
+	- separation log creation and analysis
+	- log levels
+		- Priority
+		- Default level: Information
+		- https://github.com/serilog/serilog/wiki/Configuration-Basics#minimum-level
+	- Serilog
+		- create log entry with level
+		- ecaluate logs with sinks
+			- database, azure, windows system logs
+			- send to centralized log server
+			- send critical error with Email (requires a mail server)
+			- https://github.com/serilog/serilog/wiki/Provided-Sinks
+		- add sinks package references
+			- async (performance for big log files)
+			- file (per day file logYYYYMMDD.logN)
+			- console (colored)
+	- file logs in %PROGRAMDATA%
+		- view current log with powershell: Program.Log.bat
+	- backend application logs vs payroll logs
+		- application logs contains all tenants -> software admin
+		- payroll log per tenant, endpoint to create a log -> tenant
+- Application Configuration
+	- No hard coded service settings
+	- Add appsettings.json
+		- Properties > Copy to output directory: Copy if newer
+		- Add PayrollHttpConfiguration settings
+	- User secrets
+		- package reference Microsoft.Extensions.Configuration.UserSecrets
+		- appsettings.json: UserSecretsId
+		- edit user secrets file: Project context menu > Manage User Secrets...
+- Culture setup
+	- json parser for decimals and dates
+	- CurrentCulture vs. CurrentUICulture
+	- Default program culture: 'en-US'
+	- Custom configuration types
+		- ProgramConfiguration class and app settings
+	- Custom culture with GetProgramCultureAsync()
+- Command line arguments
+	- Launch settings
+		- Properties > launchSettings.json > EndpointServices > commandLineArgs
+		- Visual Studio project properties (alternative)
+	- tool ConsoleArguments
+	- example: overwrite http configuration in GetHttpConfigurationAsync()

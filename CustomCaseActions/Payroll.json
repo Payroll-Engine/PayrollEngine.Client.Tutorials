@@ -1,0 +1,83 @@
+{
+  "$schema": "../../Schemas/PayrollEngine.Exchange.schema.json",
+  "createdObjectDate": "2019-01-01T00:00:00.0Z",
+  "tenants": [
+    {
+      "identifier": "SimplePayroll",
+      "regulations": [
+        {
+          "name": "SimplePayroll",
+          "lookups": [
+            {
+              "name": "CustomActions.Actions",
+              "values": [
+                {
+                  "key": "InvalidUidBfs",
+                  "value": "(0) with invalid UID/BFS (1)",
+                  "valueLocalizations": {
+                    "en": "(0) with invalid UID/BFS (1) [EN]",
+                    "de": "(0) with invalid UID/BFS (1) [DE]",
+                    "fr": "(0) with invalid UID/BFS (1) [FR]",
+                    "it": "(0) with invalid UID/BFS (1) [IT]"
+                  }
+                }
+              ]
+            }
+          ],
+          "cases": [
+            {
+              "name": "UidBfs",
+              "caseType": "Employee",
+              "defaultReason": "Test UidBfs",
+              "validateExpression": "true",
+              "fields": [
+                {
+                  "name": "UidBfsNumber",
+                  "valueType": "String",
+                  "timeType": "Period",
+                  "defaultStart": "today",
+                  "validateActions": [
+                    "CustomActions.UidBfs"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "DayFactor",
+              "caseType": "Employee",
+              "defaultReason": "Test DayFactor",
+              "buildExpression": "true",
+              "fields": [
+                {
+                  "name": "DayFactorDays",
+                  "valueType": "String",
+                  "timeType": "Period",
+                  "defaultStart": "today",
+                  "buildActions": [
+                    "CustomActions.DayFactor(#DayMultiplicator)"
+                  ]
+                },
+                {
+                  "name": "DayMultiplicator",
+                  "valueType": "Integer",
+                  "timeType": "Period",
+                  "defaultStart": "today",
+                  "defaultValue": "1"
+                }
+              ]
+            }
+          ],
+          "scripts": [
+            {
+              "name": "CustomActions",
+              "functionTypes": [
+                "CaseChange"
+              ],
+              "valueFile": "CustomCaseActions.cs"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

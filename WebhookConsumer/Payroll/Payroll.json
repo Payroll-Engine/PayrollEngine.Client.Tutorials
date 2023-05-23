@@ -1,0 +1,226 @@
+{
+  "$schema": "../../Schemas/PayrollEngine.Exchange.schema.json",
+  "tenants": [
+    {
+      "identifier": "WebhookPayroll",
+      "created": "2019-01-01T00:00:00.0Z",
+      "users": [
+        {
+          "identifier": "peter.schmid@foo.com",
+          "firstName": "Peter",
+          "language": "Italian",
+          "lastName": "Schmid",
+          "supervisor": true,
+          "created": "2019-01-01T00:00:00.0Z"
+        }
+      ],
+      "divisions": [
+        {
+          "name": "WebhookDivision",
+          "culture": "de-CH",
+          "created": "2019-01-01T00:00:00.0Z"
+        }
+      ],
+      "employees": [
+        {
+          "identifier": "višnja.müller@foo.com",
+          "firstName": "Višnja",
+          "lastName": "Müller",
+          "divisions": [
+            "WebhookDivision"
+          ],
+          "created": "2019-01-01T00:00:00.0Z"
+        }
+      ],
+      "webhooks": [
+        {
+          "name": "Case function request",
+          "receiverAddress": "https://localhost:44396/webhooks/casefunction",
+          "action": "CaseFunctionRequest"
+        },
+        {
+          "name": "Case added",
+          "receiverAddress": "https://localhost:44396/webhooks/caseadded",
+          "action": "CaseChangeAdded"
+        },
+        {
+          "name": "Payrun function request",
+          "receiverAddress": "https://localhost:44396/webhooks/payrunfunction",
+          "action": "PayrunFunctionRequest"
+        },
+        {
+          "name": "Payrun job process",
+          "receiverAddress": "https://localhost:44396/webhooks/jobprocess",
+          "action": "PayrunJobProcess"
+        },
+        {
+          "name": "Payrun job finish",
+          "receiverAddress": "https://localhost:44396/webhooks/jobfinish",
+          "action": "PayrunJobFinish"
+        },
+        {
+          "name": "Report function request",
+          "receiverAddress": "https://localhost:44396/webhooks/reportfunction",
+          "action": "ReportFunctionRequest"
+        },
+        {
+          "name": "Task change  request",
+          "receiverAddress": "https://localhost:44396/webhooks/taskchange",
+          "action": "TaskChange"
+        }
+      ],
+      "regulations": [
+        {
+          "name": "WebhookPayroll",
+          "description": "The webhook payroll",
+          "created": "2019-01-01T00:00:00.0Z",
+          "cases": [
+            {
+              "name": "AHV",
+              "caseType": "National",
+              "created": "2019-01-01T00:00:00.0Z",
+              "fields": [
+                {
+                  "name": "AHV",
+                  "valueType": "Decimal",
+                  "timeType": "ScaledPeriod",
+                  "created": "2019-01-01T00:00:00.0Z"
+                }
+              ]
+            },
+            {
+              "name": "Monatsfaktor",
+              "caseType": "Company",
+              "created": "2019-01-01T00:00:00.0Z",
+              "fields": [
+                {
+                  "name": "Monatsfaktor",
+                  "valueType": "Decimal",
+                  "timeType": "ScaledPeriod",
+                  "created": "2019-01-01T00:00:00.0Z"
+                }
+              ]
+            },
+            {
+              "name": "Monatslohn",
+              "nameLocalizations": {
+                "en": "Monatslohn Root"
+              },
+              "caseType": "Employee",
+              "validateExpression": "var wage = GetValue<decimal>(\"Monatslohn\"); var minWage = InvokeWebhook<decimal>(\"MinWage\"); return wage > minWage",
+              "created": "2019-01-01T00:00:00.0Z",
+              "fields": [
+                {
+                  "name": "Monatslohn",
+                  "nameLocalizations": {
+                    "en": "Monatslohn Root"
+                  },
+                  "valueType": "Money",
+                  "timeType": "ScaledPeriod",
+                  "created": "2019-01-01T00:00:00.0Z"
+                }
+              ]
+            }
+          ],
+          "wageTypes": [
+            {
+              "wageTypeNumber": 101,
+              "name": "Monatslohn 1",
+              "valueExpression": "CaseValue[\"Monatslohn\"]",
+              "created": "2019-01-01T00:00:00.0Z"
+            },
+            {
+              "wageTypeNumber": 102,
+              "name": "Min Monatslohn",
+              "valueExpression": "return InvokeWebhook<decimal>(\"MinWage\")",
+              "created": "2019-01-01T00:00:00.0Z"
+            }
+          ]
+        }
+      ],
+      "payrolls": [
+        {
+          "name": "WebhookPayroll",
+          "divisionName": "WebhookDivision",
+          "calendarCalculationMode": "MonthCalendarDay",
+          "layers": [
+            {
+              "level": 1,
+              "priority": 1,
+              "regulationName": "WebhookPayroll"
+            }
+          ],
+          "cases": [
+            {
+              "userIdentifier": "peter.schmid@foo.com",
+              "divisionName": "WebhookDivision",
+              "reason": "Payroll change AHV",
+              "case": {
+                "caseName": "AHV",
+                "values": [
+                  {
+                    "caseFieldName": "AHV",
+                    "value": "0.0575",
+                    "start": "2018-01-01T00:00:00.0Z",
+                    "created": "2017-12-15T00:00:00.0Z"
+                  }
+                ]
+              }
+            },
+            {
+              "userIdentifier": "peter.schmid@foo.com",
+              "divisionName": "WebhookDivision",
+              "reason": "Payroll change Monatsfaktor",
+              "case": {
+                "caseName": "Monatsfaktor",
+                "values": [
+                  {
+                    "caseFieldName": "Monatsfaktor",
+                    "value": "0.0125",
+                    "start": "2018-01-01T00:00:00.0Z",
+                    "created": "2017-12-15T00:00:00.0Z"
+                  }
+                ]
+              }
+            },
+            {
+              "userIdentifier": "peter.schmid@foo.com",
+              "employeeIdentifier": "višnja.müller@foo.com",
+              "divisionName": "WebhookDivision",
+              "reason": "Payroll change Monatslohn",
+              "case": {
+                "caseName": "Monatslohn",
+                "values": [
+                  {
+                    "caseFieldName": "Monatslohn",
+                    "value": "5000",
+                    "start": "2018-01-01T00:00:00.0Z",
+                    "created": "2017-12-15T00:00:00.0Z"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "payruns": [
+        {
+          "payrollName": "WebhookPayroll",
+          "name": "WebhookPayrollPayrun1"
+        }
+      ],
+      "payrunJobInvocations": [
+        {
+          "name": "WebhookPayrollPayrunJob1",
+          "payrunName": "WebhookPayrollPayrun1",
+          "payrollName": "WebhookPayroll",
+          "userIdentifier": "peter.schmid@foo.com",
+          "jobStatus": "Complete",
+          "periodStart": "2019-02-01T00:00:00.0Z",
+          "evaluationDate": "2020-03-31T00:00:00.0Z",
+          "reason": "Demo Webhook Payrun"
+        }
+      ]
+    }
+  ]
+}

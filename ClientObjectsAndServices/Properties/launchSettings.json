@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EndpointServices": {
+      "commandName": "Project",
+      "commandLineArgs": "CH.Swissdec"
+    }
+  }
+}

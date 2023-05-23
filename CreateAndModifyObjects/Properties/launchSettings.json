@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CreateAndModifyObjects": {
+      "commandName": "Project",
+      "commandLineArgs": "SimplePayroll Tasks.csv"
+    }
+  }
+}

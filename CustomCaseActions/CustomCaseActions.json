@@ -1,0 +1,54 @@
+[
+  {
+    "FunctionType": "CaseChange",
+    "Namespace": "CustomActions",
+    "Name": "DayFactor",
+    "FullName": "CustomActions.DayFactor",
+    "Description": "Value by day factor",
+    "Categories": [],
+    "Source": "Script",
+    "Parameters": [
+      {
+        "Name": "factor",
+        "Description": "Day factor (def=1)",
+        "ValueTypes": [
+          "Dec"
+        ],
+        "ValueSources": [],
+        "ValueReferences": []
+      },
+      {
+        "Name": "roundStep",
+        "Description": "The rounding step size (def=1)",
+        "ValueTypes": [
+          "Dec"
+        ],
+        "ValueSources": [],
+        "ValueReferences": []
+      }
+    ],
+    "Issues": []
+  },
+  {
+    "FunctionType": "CaseChange",
+    "Namespace": "CustomActions",
+    "Name": "UidBfs",
+    "FullName": "CustomActions.UidBfs",
+    "Description": "Validate for the swiss UID/BFS",
+    "Categories": [],
+    "Source": "Script",
+    "Parameters": [],
+    "Issues": [
+      {
+        "Name": "MissingCaseValue",
+        "Message": "Missing value (0)",
+        "ParameterCount": 1
+      },
+      {
+        "Name": "InvalidUidBfs",
+        "Message": "(0) with invalid UID/BFS (1)",
+        "ParameterCount": 2
+      }
+    ]
+  }
+]
