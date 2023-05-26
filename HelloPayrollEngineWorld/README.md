@@ -34,7 +34,7 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 		- Endpoint-Reference (PayrollRestServicesEndpoints.xlsx)
 	- Visual Studio
 		- VS Community edition
-		- .NET 7 or newer
+		- .NET 7
 
 ## Payroll Engine Client Services
 <p>
