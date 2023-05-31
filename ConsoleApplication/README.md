@@ -76,7 +76,7 @@ Tutorial topic: How to create a payroll client with a console application
 			- file (per day file logYYYYMMDD.logN)
 			- console (colored)
 	- file logs in %PROGRAMDATA%
-		- view current log with powershell: Program.Log.bat
+		- view current log with powershell: Program.Log.cmd
 	- backend application logs vs payroll logs
 		- application logs contains all tenants -> software admin
 		- payroll log per tenant, endpoint to create a log -> tenant

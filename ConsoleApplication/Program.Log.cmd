@@ -1,0 +1,1 @@
+call ..\Log.cmd ClientServiceTutorial\ConsoleApplication

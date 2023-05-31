@@ -12,6 +12,6 @@
        >}
 4. Start project *WebhookConsumer*
 	- the first run creates the hangfire SQL database schema
-5. Execute backend *.payrolls\WebhookPayroll\import.bat*
+5. Execute backend *.payrolls\WebhookPayroll\import.cmd*
     - json output: https://localhost:44396/webhooks
     - hangfire jobs: https://localhost:44396/hangfire
