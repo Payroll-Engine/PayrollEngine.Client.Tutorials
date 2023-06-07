@@ -62,7 +62,7 @@ internal class Program : ConsoleProgram<Program>
         var caseValueSetups = new List<Tuple<ICaseChangeSetup, ICaseValueSetup>>();
 
         // visitor
-        await new ExchangeVisitor(exchange)
+        await new Visitor(exchange)
         {
             VisitCaseValue = (exchangeTenant, _, caseChangeSetup, _, caseValueSetup) =>
             {

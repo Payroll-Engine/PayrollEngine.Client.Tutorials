@@ -34,12 +34,12 @@ internal class Program : ConsoleProgram<Program>
     /// <returns>The program http configuration</returns>
     protected override Task<PayrollHttpConfiguration> GetHttpConfigurationAsync()
     {
-        var baseUrl = ConsoleArguments.Get(1);
-        var port = ConsoleArguments.GetInt(2, default);
+        var baseUrl = ConsoleArguments.Get(1, "BaseUrl");
+        var port = ConsoleArguments.GetInt(2, "Port");
         if (!string.IsNullOrWhiteSpace(baseUrl) && port != default)
         {
             // configuration by arguments
-            return Task.FromResult(new PayrollHttpConfiguration(baseUrl, port));
+            return Task.FromResult(new PayrollHttpConfiguration(baseUrl, port.Value));
         }
         return base.GetHttpConfigurationAsync();
     }

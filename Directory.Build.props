@@ -1,16 +1,22 @@
 <Project>
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Version>0.2.0-pre-221225</Version>
-    <FileVersion>0.2.0</FileVersion>
-    <InformationalVersion>0.2.0-pre-221225</InformationalVersion>
-  </PropertyGroup> 
-  
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <WarningsAsErrors />
-    <NoWarn>1701;1702;8034;AD0001</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<Version>0.2.0-pre-221225</Version>
+		<FileVersion>0.2.0</FileVersion>
+		<InformationalVersion>0.2.0-pre-221225</InformationalVersion>
+		<Authors>Jani Giannoudis</Authors>
+		<Company>Software Consulting Giannoudis</Company>
+		<Copyright>2023 Software Consulting Giannoudis</Copyright>
+		<Product>Payroll Engine Client Tutorials</Product>
+		<PackageProjectUrl>https://payrollengine.org/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Payroll-Engine/PayrollEngine.Client.Tutorials.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningsAsErrors />
+		<NoWarn>1701;1702;8034;AD0001</NoWarn>
+	</PropertyGroup>
 
 </Project>

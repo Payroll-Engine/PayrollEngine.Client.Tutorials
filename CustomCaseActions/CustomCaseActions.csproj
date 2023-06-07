@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <RootNamespace>PayrollEngine.Client.Tutorial.Scripting.CustomCaseAction</RootNamespace>
-    <Product>Custom Case Action Tutorial</Product>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<RootNamespace>PayrollEngine.Client.Tutorial.Scripting.CustomCaseAction</RootNamespace>
+		<Description>Payroll Engine Client Tutorial Scripting Custom Case Action</Description>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="PayrollEngine.Client.Services" Version="0.5.0-pre-230606-3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="PayrollEngine.Client.Services" Version="0.5.0-pre-230606-4" />
+	</ItemGroup>
 
 </Project>
