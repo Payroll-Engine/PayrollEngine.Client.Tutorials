@@ -142,7 +142,6 @@
         {
           "name": "WebhookPayroll",
           "divisionName": "WebhookDivision",
-          "calendarCalculationMode": "MonthCalendarDay",
           "layers": [
             {
               "level": 1,
