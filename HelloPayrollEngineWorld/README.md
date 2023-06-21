@@ -40,6 +40,7 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 <p>
   <img src="./ClientServices.png" width="800px" alt="Payroll Engine Client Services">
 </p>
+
 - Client Services
 	- Example of a payroll client
 	- Model, Service, Exchange and Test
