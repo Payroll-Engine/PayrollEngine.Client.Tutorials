@@ -17,7 +17,7 @@ public class WageTypeReportEndFunction : Scripting.Function.ReportEndFunction
 
     [ReportEndScript(
         reportName: "WageTypesReport",
-        language: Scripting.Language.German)]
+        culture: "de-CH")]
     public object ReportEndScript()
     {
         // wage types

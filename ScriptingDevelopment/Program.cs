@@ -11,10 +11,10 @@ internal class Program : ConsoleProgram<Program>
     protected override int MandatoryArgumentCount => 2;
 
     // arguments
-    private readonly ReportScriptMode ScriptMode = ConsoleArguments.GetEnum<ReportScriptMode>(1);
-    private readonly string ReportName = ConsoleArguments.Get(2);
-    private readonly string QueryFileName = ConsoleArguments.Get(3);
-    private readonly string ResultFileName = ConsoleArguments.Get(4);
+    private ReportScriptMode ScriptMode { get; } = ConsoleArguments.GetEnum<ReportScriptMode>(1);
+    private string ReportName { get; } = ConsoleArguments.Get(2);
+    private string QueryFileName  { get; }= ConsoleArguments.Get(3);
+    private string ResultFileName { get; } = ConsoleArguments.Get(4);
 
     /// <summary>The scripting configuration</summary>
     private ScriptingConfiguration ScriptingConfiguration =>

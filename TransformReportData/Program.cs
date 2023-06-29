@@ -99,7 +99,7 @@ internal class Program : ConsoleProgram<Program>
         foreach (var employeeId in employeeIds)
         {
             // query end point: /api/tenants/{tenantId}/payrolls/{payrollId}/cases/values/time
-            var wages = (await service.ExecuteReportQueryAsync(tenantId, "GetPayrollTimeCaseValues", Language.German,
+            var wages = (await service.ExecuteReportQueryAsync(tenantId, "GetPayrollTimeCaseValues", "de-CH",
                 new QueryParameters()
                     .Parameter(nameof(tenantId), tenantId)
                     .Parameter(nameof(payrollId), payrollId)
@@ -136,7 +136,7 @@ internal class Program : ConsoleProgram<Program>
         // receive employees with query
         var service = new TenantService(HttpClient);
         // query end point: /api/tenants/{tenantId}/employees
-        var employees = await service.ExecuteReportQueryAsync(tenantId, "QueryEmployees", Language.German,
+        var employees = await service.ExecuteReportQueryAsync(tenantId, "QueryEmployees", "de-CH",
             new QueryParameters()
                 .ActiveStatus());
         // convert payroll data table to system data table

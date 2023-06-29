@@ -2,7 +2,7 @@
 <NDepend AppName="PayrollEngine.Client.Services.Tutorial" Platform="DotNet" FileWrittenByProductVersion="2023.1.0.9670">
   <OutputDir KeepXmlFiles="False">.\NDependOut</OutputDir>
   <IDEFiles>
-    <IDEFile FilePath=".\PayrollEngine.Client.Services.Tutorial.sln" Filters="-test" Configuration="DEBUG|AnyCPU">
+    <IDEFile FilePath="C:\Shared\PayrollEngine\Repos\PayrollEngine.Client.Tutorials\PayrollEngine.Client.Tutorials.sln" Filters="-test" Configuration="DEBUG|AnyCPU">
       <RootDirResolvingInfo Enabled="False" Hints="Debug|bin|.bin|b|AnyCPU|x64|x86|v*.*|net*" TimeOut="10">
         <RootDir>.</RootDir>
       </RootDirResolvingInfo>

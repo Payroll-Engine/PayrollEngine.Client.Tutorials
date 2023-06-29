@@ -16,7 +16,7 @@ public class WageTypeReportStartFunction : Scripting.Function.ReportStartFunctio
 
     [ReportStartScript(
         reportName: "WageTypesReport",
-        language: Scripting.Language.German)]
+        culture: "de-CH")]
     public object Execute()
     {
         return null;
