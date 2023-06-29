@@ -12,7 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09000206-DD90-45F1-86AA-F665B99CC48C}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		Ason.Payroll.Exchange.schema.json = Ason.Payroll.Exchange.schema.json
 		Directory.Build.props = Directory.Build.props
 		README.md = README.md
 	EndProjectSection

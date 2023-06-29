@@ -1,5 +1,5 @@
 @echo OFF
-echo Open Ason latest log file
+echo Open latest log file
 
 REM --- arguments ---
 if "%~1"=="" goto help
