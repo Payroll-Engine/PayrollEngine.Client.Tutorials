@@ -1,6 +1,5 @@
 using PayrollEngine.Client.Scripting;
 using PayrollEngine.Client.Scripting.Function;
-using PayrollEngine.Client.Scripting.Local;
 
 namespace PayrollEngine.Client.Tutorial.Scripting.CustomCaseAction;
 
@@ -10,28 +9,29 @@ public class MyCaseBuildActions : CaseChangeActionsBase
 
     #region Validate
 
-    [ActionIssue("MissingCaseValue", "Missing value (0)", 1)]
-    [ActionIssue("InvalidUidBfs", "(0) with invalid UID/BFS (1)", 2)]
-    [CaseValidateAction("UidBfs", "Validate for the swiss UID/BFS")]
-    public void UidBfs(CaseChangeActionContext context)
+    [ActionIssue("MissingUId", "Missing value (0)", 1)]
+    [ActionIssue("InvalidUId", "(0) with invalid UID (1)", 2)]
+    [CaseValidateAction("CheckUId", "Validate for the Swiss UID")]
+    public void CheckUId(CaseChangeActionContext context)
     {
-        var sourceValue = NewCaseFieldActionValue<string>(context);
+        var sourceValue = GetActionValue<string>(context);
         if (sourceValue?.ResolvedValue == null)
         {
-            AddIssue(context, "MissingCaseValue", context.CaseFieldName);
+            AddIssue(context, "MissingUId", context.CaseFieldName);
             return;
         }
 
         try
         {
-            if (!Switzerland.IsValidUidBfs(sourceValue.ResolvedValue))
-            {
-                AddIssue(context, "InvalidUidBfs", context.CaseFieldName, sourceValue.ResolvedValue);
-            }
+            // ISO 7064 digit check with modulus, radix, character-set and double-check-digit option
+            new CheckDigit(11, 1, "0123456789", false).Check(sourceValue.ResolvedValue);
+
+            // predefined digit checks: Mod11Radix2, Mod37Radix2, Mod97Radix10, Mod661Radix26, Mod1271Radix36
+            // CheckDigit.Mod11Radix2.Check(sourceValue.ResolvedValue);
         }
         catch (CheckDigitException exception)
         {
-            AddIssue(context, "InvalidUidBfs", context.CaseFieldName, exception.Message);
+            AddIssue(context, "InvalidUId", context.CaseFieldName, exception.CheckValue);
         }
     }
 
@@ -57,7 +57,7 @@ public class MyCaseBuildActions : CaseChangeActionsBase
         // factor
         decimal resolvedFactor = 1;
         factor ??= 1;
-        var factorValue = NewActionValue<decimal>(context, factor);
+        var factorValue = GetActionValue<decimal>(context, factor);
         if (factorValue != null && factorValue.IsFulfilled)
         {
             resolvedFactor = factorValue.ResolvedValue;
@@ -69,7 +69,7 @@ public class MyCaseBuildActions : CaseChangeActionsBase
 
         // decimals
         decimal resolvedRoundStep = 1;
-        var roundStepValue = NewActionValue<decimal>(context, roundStep ?? 1);
+        var roundStepValue = GetActionValue<decimal>(context, roundStep ?? 1);
         if (roundStepValue != null && roundStepValue.IsFulfilled)
         {
             resolvedRoundStep = roundStepValue.ResolvedValue;

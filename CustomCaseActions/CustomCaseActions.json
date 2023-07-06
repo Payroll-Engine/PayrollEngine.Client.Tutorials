@@ -32,8 +32,8 @@
   {
     "FunctionType": "CaseChange",
     "Namespace": "CustomActions",
-    "Name": "UidBfs",
-    "FullName": "CustomActions.UidBfs",
+    "Name": "UIdBfs",
+    "FullName": "CustomActions.UIdBfs",
     "Description": "Validate for the swiss UID/BFS",
     "Categories": [],
     "Source": "Script",
@@ -45,7 +45,7 @@
         "ParameterCount": 1
       },
       {
-        "Name": "InvalidUidBfs",
+        "Name": "InvalidUIdBfs",
         "Message": "(0) with invalid UID/BFS (1)",
         "ParameterCount": 2
       }

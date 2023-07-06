@@ -12,13 +12,12 @@
               "name": "CustomActions.Actions",
               "values": [
                 {
-                  "key": "InvalidUidBfs",
-                  "value": "(0) with invalid UID/BFS (1)",
+                  "key": "InvalidUId",
+                  "value": "(0) with invalid UID (1)",
                   "valueLocalizations": {
-                    "en": "(0) with invalid UID/BFS (1) [EN]",
-                    "de": "(0) with invalid UID/BFS (1) [DE]",
-                    "fr": "(0) with invalid UID/BFS (1) [FR]",
-                    "it": "(0) with invalid UID/BFS (1) [IT]"
+                    "de": "(0) mit ungültiger UID (1)",
+                    "fr": "(0) avec un UID invalide (1)",
+                    "it": "(0) con UID non valido (1)"
                   }
                 }
               ]
@@ -26,18 +25,18 @@
           ],
           "cases": [
             {
-              "name": "UidBfs",
+              "name": "UId",
               "caseType": "Employee",
-              "defaultReason": "Test UidBfs",
+              "defaultReason": "Test UId",
               "validateExpression": "true",
               "fields": [
                 {
-                  "name": "UidBfsNumber",
+                  "name": "UId",
                   "valueType": "String",
                   "timeType": "Period",
                   "defaultStart": "today",
                   "validateActions": [
-                    "CustomActions.UidBfs"
+                    "CustomActions.CheckUId"
                   ]
                 }
               ]

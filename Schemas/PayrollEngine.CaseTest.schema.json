@@ -130,7 +130,7 @@
     "CaseChangeSetup": {
       "allOf": [
         {
-          "$ref": "#/definitions/Model"
+          "$ref": "#/definitions/ModelBase"
         },
         {
           "type": "object",
@@ -236,7 +236,7 @@
     "CaseSetup": {
       "allOf": [
         {
-          "$ref": "#/definitions/Model"
+          "$ref": "#/definitions/ModelBase"
         },
         {
           "type": "object",
@@ -307,14 +307,13 @@
     "CaseDocument": {
       "allOf": [
         {
-          "$ref": "#/definitions/Model"
+          "$ref": "#/definitions/ModelBase"
         },
         {
           "type": "object",
           "description": "The case document client object",
           "required": [
             "name",
-            "content",
             "contentType"
           ],
           "properties": {
@@ -324,9 +323,11 @@
               "minLength": 1
             },
             "content": {
-              "type": "string",
-              "description": "The document content",
-              "minLength": 1
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "The document content"
             },
             "contentFile": {
               "type": [
@@ -345,7 +346,7 @@
         }
       ]
     },
-    "Model": {
+    "ModelBase": {
       "type": "object",
       "description": "Base for all Payroll models",
       "x-abstract": true,
@@ -418,7 +419,7 @@
     "CaseValue": {
       "allOf": [
         {
-          "$ref": "#/definitions/Model"
+          "$ref": "#/definitions/ModelBase"
         },
         {
           "type": "object",
@@ -668,9 +669,7 @@
       "type": "object",
       "description": "Represents an issue from the case validation",
       "required": [
-        "issueType",
-        "caseName",
-        "message"
+        "issueType"
       ],
       "properties": {
         "issueType": {
@@ -687,7 +686,10 @@
           "format": "int32"
         },
         "caseName": {
-          "type": "string",
+          "type": [
+            "null",
+            "string"
+          ],
           "description": "Gets the name of the case",
           "maxLength": 128,
           "minLength": 0
@@ -817,9 +819,11 @@
           }
         },
         "message": {
-          "type": "string",
-          "description": "Gets the validation message",
-          "minLength": 1
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "The validation message"
         }
       }
     },
@@ -1206,7 +1210,7 @@
     "CaseField": {
       "allOf": [
         {
-          "$ref": "#/definitions/Model"
+          "$ref": "#/definitions/ModelBase"
         },
         {
           "type": "object",
@@ -1280,6 +1284,14 @@
                 }
               ]
             },
+            "periodAggregation": {
+              "description": "The period aggregation type for Period",
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/CaseFieldAggregationType"
+                }
+              ]
+            },
             "overrideType": {
               "description": "The override type",
               "oneOf": [
@@ -1303,6 +1315,13 @@
                   "$ref": "#/definitions/CaseValueCreationMode"
                 }
               ]
+            },
+            "culture": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "The case field culture name based on RFC 4646"
             },
             "valueMandatory": {
               "type": "boolean",
@@ -1443,13 +1462,13 @@
         "Timeless",
         "Moment",
         "Period",
-        "ScaledPeriod"
+        "CalendarPeriod"
       ],
       "enum": [
         "Timeless",
         "Moment",
         "Period",
-        "ScaledPeriod"
+        "CalendarPeriod"
       ]
     },
     "CaseFieldTimeUnit": {
@@ -1464,6 +1483,20 @@
         "Day",
         "HalfDay",
         "Month"
+      ]
+    },
+    "CaseFieldAggregationType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Summary",
+        "Last",
+        "First"
+      ],
+      "enum": [
+        "Summary",
+        "Last",
+        "First"
       ]
     },
     "OverrideType": {
@@ -1593,7 +1626,7 @@
     "Case": {
       "allOf": [
         {
-          "$ref": "#/definitions/Model"
+          "$ref": "#/definitions/ModelBase"
         },
         {
           "type": "object",
@@ -1994,7 +2027,7 @@
     "CaseChange": {
       "allOf": [
         {
-          "$ref": "#/definitions/Model"
+          "$ref": "#/definitions/ModelBase"
         },
         {
           "type": "object",
@@ -2098,6 +2131,16 @@
                 "null"
               ],
               "description": "The case values",
+              "items": {
+                "$ref": "#/definitions/CaseValue"
+              }
+            },
+            "ignoredValues": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "description": "The ignored case values",
               "items": {
                 "$ref": "#/definitions/CaseValue"
               }
