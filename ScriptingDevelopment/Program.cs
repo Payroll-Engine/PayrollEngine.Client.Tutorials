@@ -17,8 +17,8 @@ internal class Program : ConsoleProgram<Program>
     private string ResultFileName { get; } = ConsoleArguments.Get(4);
 
     /// <summary>The scripting configuration</summary>
-    private ScriptingConfiguration ScriptingConfiguration =>
-        Configuration.GetConfiguration<ScriptingConfiguration>();
+    private ScriptConfiguration ScriptingConfiguration =>
+        Configuration.GetConfiguration<ScriptConfiguration>();
 
     /// <inheritdoc />
     protected override Tasks.Task RunAsync()
