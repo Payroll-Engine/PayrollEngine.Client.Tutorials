@@ -1,5 +1,14 @@
 # Payroll Engine Client Tutorials
 
+## NuGet
+Client services are integrated into .NET projects using the NuGet [`PayrollEngine.Client.Services`](https://www.nuget.org/packages/PayrollEngine.Client.Services/) package reference.
+```xml
+<PackageReference Include="PayrollEngine.Client.Services" Version="0.6.0-beta.4" />
+```
+
+## Developer Reference Manual
+The documentation can be downloaded as a zip file from the [Release](https://github.com/Payroll-Engine/PayrollEngine/releases) `Assets`. After unzipping the zip file, `index.html` is the start page of the documentation.
+
 ## Tutorials
 | Tutorial | Description |
 |------------- | ------------- |
