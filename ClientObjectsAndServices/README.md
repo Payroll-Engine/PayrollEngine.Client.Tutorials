@@ -1,24 +1,20 @@
 # Payroll Engine Client Tutorials - Client objects and services
 
 ## Overview
-
 Tutorial topic: Display tenant employees with Payroll Engine client objects and services
 
 ## Prerequisites
-
 - Payroll Engine Backend running with known tenant
 - Visual Studio with .NET 7
 - Client services tutorial: Console Application
 
 ## Learnings
-
 - Client object model
 - Client services
 - Retrieve single object
 - Query multiple objects
 
 ## Notes
-
 - Welcome - tutorial slide
 	- Display tenant employees with Payroll Engine client objects and services
 	- Prerequisites
@@ -64,7 +60,6 @@ Tutorial topic: Display tenant employees with Payroll Engine client objects and 
 	- Enhance query performance
 	- Reduce trafic volume with less data
 	- Query with OData
-		- ODataQuery.txt
 		- sort order
 		- pagging filters
 		- filtering (advanced topic)

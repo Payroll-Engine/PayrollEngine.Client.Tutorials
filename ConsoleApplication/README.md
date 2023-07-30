@@ -1,17 +1,14 @@
 # Payroll Engine Client Tutorials - Console Application
 
 ## Overview
-
 Tutorial topic: How to create a payroll client with a console application
 
 ## Prerequisites
-
 - Payroll Engine Backend running
 - Visual Studio with .NET 7
 - Client services tutorial: Hello Payroll Engine World!
 
 ## Learnings
-
 - Console program template
 - Error handling
 - Logging
@@ -27,10 +24,10 @@ Tutorial topic: How to create a payroll client with a console application
 	- Learnings
 	- Different aspects, for any type of Payroll Engine client software
 - Visual Studio
-	- Tutorial project ConsoleApplication.csproj
+	- Tutorial project `ConsoleApplication.csproj`
 	- Tutorial notes in project folder README.md
 	- Run the application
-- ConsoleProgram<TApp>
+- `ConsoleProgram<TApp>`
 	- Best practices for console application (HTML Help)
 	- Base for Payroll Console and Report Console
 	- Lifecycle
@@ -46,8 +43,8 @@ Tutorial topic: How to create a payroll client with a console application
 		- Program Main
 	- All Payroll Engine client services are async
 	- Use methods in non-async mode
-		- without return value: return Task.CompletedTask;
-		- with return value: return Task.FromResult(value);
+		- without return value: `return Task.CompletedTask`;
+		- with return value: `return Task.FromResult(value)`;
 	- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
 - Error handling
 	- try/catch/finally
@@ -73,10 +70,10 @@ Tutorial topic: How to create a payroll client with a console application
 			- https://github.com/serilog/serilog/wiki/Provided-Sinks
 		- add sinks package references
 			- async (performance for big log files)
-			- file (per day file logYYYYMMDD.logN)
+			- file (per day file `logYYYYMMDD.logN`)
 			- console (colored)
-	- file logs in %PROGRAMDATA%
-		- view current log with powershell: Program.Log.cmd
+	- file logs in `%PROGRAMDATA%`
+		- view current log with powershell: `Program.Log.cmd`
 	- backend application logs vs payroll logs
 		- application logs contains all tenants -> software admin
 		- payroll log per tenant, endpoint to create a log -> tenant
@@ -86,19 +83,19 @@ Tutorial topic: How to create a payroll client with a console application
 		- Properties > Copy to output directory: Copy if newer
 		- Add PayrollHttpConfiguration settings
 	- User secrets
-		- package reference Microsoft.Extensions.Configuration.UserSecrets
-		- appsettings.json: UserSecretsId
+		- package reference `Microsoft.Extensions.Configuration.UserSecrets`
+		- appsettings.json: `UserSecretsId`
 		- edit user secrets file: Project context menu > Manage User Secrets...
 - Culture setup
 	- json parser for decimals and dates
 	- CurrentCulture vs. CurrentUICulture
-	- Default program culture: 'en-US'
+	- Default program culture: `en-US`
 	- Custom configuration types
 		- ProgramConfiguration class and app settings
-	- Custom culture with GetProgramCultureAsync()
+	- Custom culture with `GetProgramCultureAsync()`
 - Command line arguments
 	- Launch settings
 		- Properties > launchSettings.json > EndpointServices > commandLineArgs
 		- Visual Studio project properties (alternative)
 	- tool ConsoleArguments
-	- example: overwrite http configuration in GetHttpConfigurationAsync()
+	- example: overwrite http configuration in `GetHttpConfigurationAsync()`

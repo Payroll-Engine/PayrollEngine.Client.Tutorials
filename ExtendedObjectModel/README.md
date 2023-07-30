@@ -1,17 +1,14 @@
 # Payroll Engine Client Tutorials - Extended object model
 
 ## Overview
-
 Tutorial topic: How the extend or map  the payroll model
 
 ## Prerequisites
-
 - Payroll Engine Backend running with SimplePayroll
 - Visual Studio with .NET 7
 - Tutorial Create and modify objects
 
 ## Learnings
-
 - Custom object attribute
 - Map payroll object
 - Query custom attribute
@@ -24,7 +21,7 @@ Tutorial topic: How the extend or map  the payroll model
 	- Prerequisites
 	- Learnings
 - Visual Studio
-	- Tutorial project ExtendedObjectModel.csproj
+	- Tutorial project `ExtendedObjectModel.csproj`
 	- Tutorial notes in project folder README.md
 - Application use cases
 	- Extend Employee object with Erp Id (Guid)

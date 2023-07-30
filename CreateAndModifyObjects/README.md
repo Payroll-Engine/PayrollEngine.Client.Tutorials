@@ -1,17 +1,14 @@
 # Payroll Engine Client Tutorials - Created and modify objects
 
 ## Overview
-
 Tutorial topic: Manage user tasks using a CSV file
 
 ## Prerequisites
-
 - Payroll Engine Backend running with SimplePayroll
 - Visual Studio with .NET 7
 - Client services tutorial: Client objects and services
 
 ## Learnings
-
 - Create objects
 - Update objects
 - Using CSV files
@@ -24,7 +21,7 @@ Tutorial topic: Manage user tasks using a CSV file
 	- Prerequisites
 	- Learnings
 - Visual Studio
-	- Tutorial project CreateAndModifyObjects.csproj
+	- Tutorial project `CreateAndModifyObjects.csproj`
 	- Tutorial notes in project folder README.md
 - Application use cases
 	- Create new tasks

@@ -1,18 +1,14 @@
 # Payroll Engine Client Tutorials - Scripting Development
 
-
 ## Overview
-
 Tutorial topic: Develop payroll reports with Visual Studio
 
 ## Prerequisites
-
 - Payroll Engine Backend running with SimplePayroll
 - Visual Studio with .NET 7
 - Tutorial Console Application
 
 ## Learnings
-
 - Scripts in Visual Studio
 - Invoke and debug scripts
 - Invocation input and output data
@@ -36,7 +32,7 @@ Tutorial topic: Develop payroll reports with Visual Studio
 	- Code a report in Visual Studio
 	- Debug a report in Visual Studio
 - Visual Studio
-	- Tutorial project ScriptingDevelopment.csproj
+	- Tutorial project `ScriptingDevelopment.csproj`
 	- Tutorial notes in project folder README.md
 - SimplePayroll WageTypesReport
 	- json example

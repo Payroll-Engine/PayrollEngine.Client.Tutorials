@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<AssemblyName>PayrollEngine.Client.Tutorial.PayrollTestRunner</AssemblyName>
+		<RootNamespace>PayrollEngine.Client.Tutorial.PayrollTestRunner</RootNamespace>
+		<Description>Payroll Engine Client Tutorial Payroll Test Runner</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="PayrunTest.json" />
+	  <None Remove="PayrunTestFailure.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="PayrunTest.json" />
+	  <EmbeddedResource Include="PayrunTestFailure.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="PayrollEngine.Client.Services" Version="0.6.0-beta.5" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+		<PackageReference Include="PayrollEngine.Serilog" Version="0.6.0-beta.5" />
+		<PackageReference Include="xunit" Version="2.5.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>
