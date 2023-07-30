@@ -11,7 +11,7 @@
 [ExtendedObjectModel](ExtendedObjectModel)            | Object extension with custom attributes |
 [HelloPayrollEngineWorld](HelloPayrollEngineWorld)    | Minimal payroll console program |
 [ImportExchangeData](ImportExchangeData)              | Import data from JSON |
-[PayrolTestRunner](PayrolTestRunner)                  | Integrate the payrun test runner |
+[PayrollTestRunner](PayrollTestRunner)                | Integrate the payroll test runner |
 [ScriptingDevelopment](ScriptingDevelopment)          | Writting and debugging scripts in Visual Studio |
 [TransformReportData](TransformReportData/)           | Transform report queries to data sets |
 [WebhookConsumer](WebhookConsumer/)                   | Consume and delegate webhooks |

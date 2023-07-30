@@ -1,7 +1,7 @@
 # Payroll Engine Client Tutorials - Payroll unit tests
 
 ## Overview
-Tutorial topic: Integrate the payrun test runner
+Tutorial topic: Integrate the payroll test runner
 
 | :zap: **This is just one example of test runner integration. Since a connection to the backend is required, test runners are not suitable for unit tests.** |
 |----|
