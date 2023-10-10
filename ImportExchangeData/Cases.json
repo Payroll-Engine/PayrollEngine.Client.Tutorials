@@ -1,5 +1,5 @@
 {
-  "$schema": "../../Schemas/PayrollEngine.Exchange.schema.json",
+  "$schema": "../Schemas/PayrollEngine.Exchange.schema.json",
   "tenants": [
     {
       "identifier": "SimplePayroll",

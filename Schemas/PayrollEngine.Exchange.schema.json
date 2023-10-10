@@ -301,13 +301,15 @@
       "type": "string",
       "description": "The type of the user",
       "x-enumNames": [
-        "Regular",
+        "User",
         "Employee",
+        "Administrator",
         "Supervisor"
       ],
       "enum": [
-        "Regular",
+        "User",
         "Employee",
+        "Administrator",
         "Supervisor"
       ]
     },
@@ -1751,6 +1753,10 @@
                 }
               ]
             },
+            "hidden": {
+              "type": "boolean",
+              "description": "Hidden case (default: false)"
+            },
             "availableExpression": {
               "type": [
                 "null",
@@ -2258,8 +2264,7 @@
           "type": "object",
           "description": "The payroll collector client object",
           "required": [
-            "name",
-            "collectType"
+            "name"
           ],
           "properties": {
             "name": {
@@ -2278,13 +2283,17 @@
                 "type": "string"
               }
             },
-            "collectType": {
-              "description": "The collection type (immutable)",
+            "collectMode": {
+              "description": "The collect mode (immutable, default: summary)",
               "oneOf": [
                 {
-                  "$ref": "#/definitions/CollectType"
+                  "$ref": "#/definitions/CollectMode"
                 }
               ]
+            },
+            "negated": {
+              "type": "boolean",
+              "description": "Negated collector result (immutable, default: false)"
             },
             "overrideType": {
               "description": "The override type",
@@ -2400,21 +2409,23 @@
         }
       ]
     },
-    "CollectType": {
+    "CollectMode": {
       "type": "string",
-      "description": "The collect type",
+      "description": "The collect mode",
       "x-enumNames": [
-        "Sum",
-        "Min",
-        "Max",
+        "Summary",
+        "Minimum",
+        "Maximum",
         "Average",
+        "Range",
         "Count"
       ],
       "enum": [
-        "Sum",
-        "Min",
-        "Max",
+        "Summary",
+        "Minimum",
+        "Maximum",
         "Average",
+        "Range",
         "Count"
       ]
     },
@@ -2797,6 +2808,10 @@
             "mandatory": {
               "type": "boolean",
               "description": "The parameter mandatory state"
+            },
+            "hidden": {
+              "type": "boolean",
+              "description": "Hidden parameter"
             },
             "value": {
               "type": [
@@ -5595,13 +5610,17 @@
                 "type": "string"
               }
             },
-            "collectType": {
-              "description": "The collection type (immutable)",
+            "collectMode": {
+              "description": "The collect mode (immutable)",
               "oneOf": [
                 {
-                  "$ref": "#/definitions/CollectType"
+                  "$ref": "#/definitions/CollectMode"
                 }
               ]
+            },
+            "negated": {
+              "type": "boolean",
+              "description": "Negated collector result (immutable)"
             },
             "valueType": {
               "description": "The value type (immutable)",
