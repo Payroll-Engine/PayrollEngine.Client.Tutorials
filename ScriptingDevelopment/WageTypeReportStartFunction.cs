@@ -7,13 +7,8 @@ namespace PayrollEngine.Client.Tutorial.ScriptingDevelopment;
     tenantIdentifier: "SimplePayroll",
     userIdentifier: "peter.schmid@foo.com",
     regulationName: "SimplePayroll")]
-public class WageTypeReportStartFunction : Scripting.Function.ReportStartFunction
+public class WageTypeReportStartFunction(IReportStartRuntime runtime) : Scripting.Function.ReportStartFunction(runtime)
 {
-    public WageTypeReportStartFunction(IReportStartRuntime runtime) :
-        base(runtime)
-    {
-    }
-
     [ReportStartScript(
         reportName: "WageTypesReport",
         culture: "de-CH")]

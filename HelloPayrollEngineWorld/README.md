@@ -8,7 +8,7 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 
 ## Prerequisites
 - Payroll Engine Backend running
-- Visual Studio with .NET 7
+- Visual Studio with .NET 8
 
 ## Learnings
 - Payroll Engine Client Services
@@ -27,7 +27,7 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 		- Endpoints by groups
 	- Visual Studio
 		- VS Community edition
-		- .NET 7
+		- .NET 8
 
 ## Payroll Engine Client Services
 <p>
@@ -40,7 +40,7 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 - Mininal .NET console application
 	- File > New > Project > Console App C#
 		- Name: `HelloPayrollEngineWorld`
-		- Framework: `.NET 7`
+		- Framework: `.NET 8`
 		- Do not use top-level statements: check
 	- Edit `HelloPayrollEngineWorld.csproj`
 		- remove ImplicitUsings and Nullable

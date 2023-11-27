@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 
 namespace PayrollEngine.Client.Tutorial.HelloPayrollEngineWorld;
 
@@ -9,12 +10,13 @@ internal class Program
     static void Main()
     {
         // http client
-        using var httpClient = new PayrollHttpClient("https://localhost", 44354);
+        using var clientHandler = new HttpClientHandler();
+        using var payrollHttpClient = new PayrollHttpClient(clientHandler, "https://localhost", 44354);
 
         // connection test
-        if (!httpClient.IsConnectionAvailable())
+        if (!payrollHttpClient.IsConnectionAvailable())
         {
-            Console.WriteLine($"Backend connection {httpClient.Address} is not available.");
+            Console.WriteLine($"Backend connection {payrollHttpClient.Address} is not available.");
             Console.ReadKey();
             return;
         }

@@ -5,7 +5,7 @@ Tutorial topic: How to create a payroll client with a console application
 
 ## Prerequisites
 - Payroll Engine Backend running
-- Visual Studio with .NET 7
+- Visual Studio with .NET 8
 - Client services tutorial: Hello Payroll Engine World!
 
 ## Learnings

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using PayrollEngine.Client.Exchange;
 using PayrollEngine.Client.Model;
 using PayrollEngine.Client.Scripting.Script;
@@ -75,7 +76,7 @@ internal class Program : ConsoleProgram<Program>
                 if (string.Equals(MonthWageCaseFieldName, caseValueSetup.CaseFieldName))
                 {
                     // month wage from case value
-                    var wage = ValueConvert.ToDecimal(caseValueSetup.Value);
+                    var wage = ValueConvert.ToDecimal(caseValueSetup.Value, CultureInfo.InvariantCulture);
                     if (wage < MonthWageMin)
                     {
                         // store min wage request value as case value attribute

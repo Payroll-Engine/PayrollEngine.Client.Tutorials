@@ -8,13 +8,8 @@ namespace PayrollEngine.Client.Tutorial.ScriptingDevelopment;
     tenantIdentifier: "SimplePayroll",
     userIdentifier: "peter.schmid@foo.com",
     regulationName: "SimplePayroll")]
-public class WageTypeReportEndFunction : Scripting.Function.ReportEndFunction
+public class WageTypeReportEndFunction(IReportEndRuntime runtime) : Scripting.Function.ReportEndFunction(runtime)
 {
-    public WageTypeReportEndFunction(IReportEndRuntime runtime) :
-        base(runtime)
-    {
-    }
-
     [ReportEndScript(
         reportName: "WageTypesReport",
         culture: "de-CH")]

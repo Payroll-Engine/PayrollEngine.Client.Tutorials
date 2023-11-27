@@ -5,7 +5,7 @@ Tutorial topic: Manage user tasks using a CSV file
 
 ## Prerequisites
 - Payroll Engine Backend running with SimplePayroll
-- Visual Studio with .NET 7
+- Visual Studio with .NET 8
 - Client services tutorial: Client objects and services
 
 ## Learnings

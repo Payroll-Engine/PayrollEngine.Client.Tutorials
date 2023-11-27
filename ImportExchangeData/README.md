@@ -5,7 +5,7 @@ Tutorial topic: Import employee wage changes from JSON file
 
 ## Prerequisites
 - Payroll Engine Backend running with SimplePayroll
-- Visual Studio with .NET 7
+- Visual Studio with .NET 8
 - Tutorial Create and modify objects
 
 ## Learnings

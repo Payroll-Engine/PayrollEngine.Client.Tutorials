@@ -5,7 +5,7 @@ Tutorial topic: Develop payroll reports with Visual Studio
 
 ## Prerequisites
 - Payroll Engine Backend running with SimplePayroll
-- Visual Studio with .NET 7
+- Visual Studio with .NET 8
 - Tutorial Console Application
 
 ## Learnings

@@ -5,7 +5,7 @@ Tutorial topic: Transform report queries to data sets
 
 ## Prerequisites
 - Payroll Engine Backend running with known tenant
-- Visual Studio with .NET 7
+- Visual Studio with .NET 8
 - Client services tutorial: Console Application
 
 ## Learnings

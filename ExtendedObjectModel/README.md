@@ -5,7 +5,7 @@ Tutorial topic: How the extend or map  the payroll model
 
 ## Prerequisites
 - Payroll Engine Backend running with SimplePayroll
-- Visual Studio with .NET 7
+- Visual Studio with .NET 8
 - Tutorial Create and modify objects
 
 ## Learnings

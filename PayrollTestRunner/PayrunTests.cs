@@ -6,13 +6,8 @@ using Xunit;
 
 namespace PayrollEngine.Client.Tutorial.PayrollTestRunner;
 
-public class PayrunTests : PayrollTestBase
+public class PayrunTests(PayrollHttpClientFixture fixture) : PayrollTestBase(fixture)
 {
-    public PayrunTests(PayrollHttpClientFixture fixture) :
-        base(fixture)
-    {
-    }
-
     [Fact]
     public async Task PayrunTest()
     {

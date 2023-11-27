@@ -1,7 +1,7 @@
 <Project>
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<Version>0.2.0-pre-221225</Version>
 		<FileVersion>0.2.0</FileVersion>
 		<InformationalVersion>0.2.0-pre-221225</InformationalVersion>
