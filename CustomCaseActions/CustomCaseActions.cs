@@ -40,9 +40,9 @@ public class MyCaseBuildActions : CaseChangeActionsBase
     #region Build
 
     [ActionParameter("factor", "Day factor (def=1)",
-        valueTypes: new[] { DecimalType })]
+        valueTypes: [DecimalType])]
     [ActionParameter("roundStep", "The rounding step size (def=1)",
-        valueTypes: new[] { DecimalType })]
+        valueTypes: [DecimalType])]
     [CaseBuildAction("DayFactor", "Value by day factor")]
     public void DayFactor(CaseChangeActionContext context, object factor = null, object roundStep = null)
     {
