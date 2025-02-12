@@ -2,6 +2,28 @@
   {
     "FunctionType": "CaseChange",
     "Namespace": "CustomActions",
+    "Name": "CheckUId",
+    "FullName": "CustomActions.CheckUId",
+    "Description": "Validate for the Swiss UID",
+    "Categories": [],
+    "Source": "Script",
+    "Parameters": [],
+    "Issues": [
+      {
+        "Name": "MissingUId",
+        "Message": "Missing value (0)",
+        "ParameterCount": 1
+      },
+      {
+        "Name": "InvalidUId",
+        "Message": "(0) with invalid UID (1)",
+        "ParameterCount": 2
+      }
+    ]
+  },
+  {
+    "FunctionType": "CaseChange",
+    "Namespace": "CustomActions",
     "Name": "DayFactor",
     "FullName": "CustomActions.DayFactor",
     "Description": "Value by day factor",
@@ -28,27 +50,5 @@
       }
     ],
     "Issues": []
-  },
-  {
-    "FunctionType": "CaseChange",
-    "Namespace": "CustomActions",
-    "Name": "UIdBfs",
-    "FullName": "CustomActions.UIdBfs",
-    "Description": "Validate for the swiss UID/BFS",
-    "Categories": [],
-    "Source": "Script",
-    "Parameters": [],
-    "Issues": [
-      {
-        "Name": "MissingCaseValue",
-        "Message": "Missing value (0)",
-        "ParameterCount": 1
-      },
-      {
-        "Name": "InvalidUIdBfs",
-        "Message": "(0) with invalid UID/BFS (1)",
-        "ParameterCount": 2
-      }
-    ]
   }
 ]

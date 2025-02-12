@@ -1,10 +1,9 @@
 ﻿
-namespace PayrollEngine.Client.Tutorial.ScriptingDevelopment
+namespace PayrollEngine.Client.Tutorial.ScriptingDevelopment;
+
+internal enum ReportScriptMode
 {
-    internal enum ReportScriptMode
-    {
-        Start,
-        End,
-        StartEnd
-    }
+    Start,
+    End,
+    StartEnd
 }

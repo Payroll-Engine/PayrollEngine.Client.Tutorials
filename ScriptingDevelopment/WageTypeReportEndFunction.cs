@@ -19,19 +19,19 @@ public class WageTypeReportEndFunction(IReportEndRuntime runtime) : Scripting.Fu
         var regulations = Tables["Regulations"];
         if (regulations == null || regulations.Rows.Count != 1)
         {
-            throw new ScriptException("Missing regulation");
+            throw new ScriptException("Missing regulation.");
         }
 
         DataRow regulation = regulations.Rows[0];
         if (regulation["Id"] is not int id || id <= 0)
         {
-            throw new ScriptException("Missing regulation");
+            throw new ScriptException("Missing regulation.");
         }
 
         // query regulation wage types
         // ...
 
-        return default;
+        return null;
     }
 }
 

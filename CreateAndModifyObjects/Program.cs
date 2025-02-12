@@ -140,7 +140,7 @@ internal class Program : ConsoleProgram<Program>
         {
             if (csvTask.Count < 5)
             {
-                throw new PayrollException($"Invalid task csv line: {string.Join(',', csvTask)}");
+                throw new PayrollException($"Invalid task csv line: {string.Join(',', csvTask)}.");
             }
 
             // user
@@ -148,14 +148,14 @@ internal class Program : ConsoleProgram<Program>
             var user = users.FirstOrDefault(x => string.Equals(x.Identifier, userIdentifier));
             if (user == null)
             {
-                throw new PayrollException($"Invalid task user {userIdentifier}");
+                throw new PayrollException($"Invalid task user {userIdentifier}.");
             }
 
             // name
             var name = csvTask[1];
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new PayrollException("Missing task name");
+                throw new PayrollException("Missing task name.");
             }
 
             // instruction, mandatory for new tasks
@@ -167,7 +167,7 @@ internal class Program : ConsoleProgram<Program>
             // date in UTC
             if (!DateTime.TryParse(csvTask[4], null, DateTimeStyles.AdjustToUniversal, out var date))
             {
-                throw new PayrollException($"Invalid task date {csvTask[4]}");
+                throw new PayrollException($"Invalid task date {csvTask[4]}.");
             }
 
             // create new scheduled task

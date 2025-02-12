@@ -1,9 +1,9 @@
 using System;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using PayrollEngine.Serialization;
-using PayrollEngine.Serilog;
+using System.Runtime.CompilerServices;
 using Xunit;
+using PayrollEngine.Serilog;
+using PayrollEngine.Serialization;
 
 namespace PayrollEngine.Client.Tutorial.PayrollTestRunner;
 

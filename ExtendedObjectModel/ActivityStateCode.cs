@@ -1,10 +1,9 @@
 ﻿
-namespace PayrollEngine.Client.Tutorial.ExtendedObjectModel
+namespace PayrollEngine.Client.Tutorial.ExtendedObjectModel;
+
+public enum ActivityStateCode
 {
-    public enum ActivityStateCode
-    {
-        Completed = 1,
-        Canceled = 2,
-        Scheduled = 3,
-    }
+    Completed = 1,
+    Canceled = 2,
+    Scheduled = 3,
 }

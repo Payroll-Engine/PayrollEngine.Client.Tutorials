@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Threading.Tasks;
-using PayrollEngine.Client.Scripting.Script;
-using PayrollEngine.Client.Test.Payrun;
 using Xunit;
+using PayrollEngine.Client.Test.Payrun;
+using PayrollEngine.Client.Scripting.Script;
 
 namespace PayrollEngine.Client.Tutorial.PayrollTestRunner;
 

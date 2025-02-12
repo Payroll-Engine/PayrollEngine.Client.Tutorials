@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace PayrollEngine.Client.Tutorial.HelloPayrollEngineWorld;
 
@@ -7,14 +8,14 @@ namespace PayrollEngine.Client.Tutorial.HelloPayrollEngineWorld;
 internal class Program
 {
     /// <summary>Program entry point</summary>
-    static void Main()
+    static async Task Main()
     {
         // http client
         using var clientHandler = new HttpClientHandler();
         using var payrollHttpClient = new PayrollHttpClient(clientHandler, "https://localhost", 44354);
 
         // connection test
-        if (!payrollHttpClient.IsConnectionAvailable())
+        if (! await payrollHttpClient.IsConnectionAvailableAsync(TenantApiEndpoints.TenantsUrl()))
         {
             Console.WriteLine($"Backend connection {payrollHttpClient.Address} is not available.");
             Console.ReadKey();

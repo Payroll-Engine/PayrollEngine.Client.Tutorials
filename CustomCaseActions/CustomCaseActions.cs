@@ -61,7 +61,7 @@ public class MyCaseBuildActions : CaseChangeActionsBase
         if (factorValue != null && factorValue.IsFulfilled)
         {
             resolvedFactor = factorValue.ResolvedValue;
-            if (resolvedFactor == default)
+            if (resolvedFactor == 0)
             {
                 return;
             }
@@ -73,7 +73,7 @@ public class MyCaseBuildActions : CaseChangeActionsBase
         if (roundStepValue != null && roundStepValue.IsFulfilled)
         {
             resolvedRoundStep = roundStepValue.ResolvedValue;
-            if (resolvedRoundStep == default)
+            if (resolvedRoundStep == 0)
             {
                 return;
             }

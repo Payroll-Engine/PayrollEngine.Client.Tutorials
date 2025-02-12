@@ -15,7 +15,8 @@ internal class Program : ConsoleProgram<Program>
 
     /// <inheritdoc />
     protected override async Task<bool> InitializeAsync() =>
-        await HttpClient.IsConnectionAvailableAsync() && await base.InitializeAsync();
+        await HttpClient.IsConnectionAvailableAsync(TenantApiEndpoints.TenantsUrl()) &&
+        await base.InitializeAsync();
 
     /// <summary>Override the program with <see cref="ProgramConfiguration"/></summary>
     /// <returns>The program culture</returns>
@@ -36,7 +37,7 @@ internal class Program : ConsoleProgram<Program>
     {
         var baseUrl = ConsoleArguments.Get(1, "BaseUrl");
         var port = ConsoleArguments.GetInt(2, "Port");
-        if (!string.IsNullOrWhiteSpace(baseUrl) && port != default)
+        if (!string.IsNullOrWhiteSpace(baseUrl) && port != null)
         {
             // configuration by arguments
             return Task.FromResult(new PayrollHttpConfiguration(baseUrl, port.Value));
