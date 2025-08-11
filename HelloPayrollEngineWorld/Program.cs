@@ -18,12 +18,12 @@ internal class Program
         if (! await payrollHttpClient.IsConnectionAvailableAsync(TenantApiEndpoints.TenantsUrl()))
         {
             Console.WriteLine($"Backend connection {payrollHttpClient.Address} is not available.");
-            Console.ReadKey();
-            return;
         }
-
-        // connection available
-        Console.WriteLine("Hello, Payroll Engine World!");
-        Console.ReadKey();
+        else
+        {
+            // connection available
+            Console.WriteLine("Hello, Payroll Engine World!");
+        }
+        Console.Read();
     }
 }

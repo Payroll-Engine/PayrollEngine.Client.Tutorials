@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using PayrollEngine.Client.Model;
 using PayrollEngine.Client.Service.Api;
+using System.Collections.Generic;
+using System.Linq;
 using Tasks = System.Threading.Tasks;
 
 namespace PayrollEngine.Client.Tutorial.ExtendedObjectModel;
@@ -99,13 +100,17 @@ internal class Program : ConsoleProgram<Program>
     /// <returns>The custom activity</returns>
     private static Activity MapTaskToActivity(Task task)
     {
+        // logger
+        var loggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
+
         // mapper configuration
         var config = new MapperConfiguration(cfg =>
             cfg.CreateMap<Task, Activity>()
                 .ForMember(dest => dest.ActivityId, act => act.MapFrom(
                             src => src.GetAttributeGuid("ErpId")))
                 .ForMember(dest => dest.State, act => act.MapFrom(
-                            src => src.Completed.HasValue ? ActivityStateCode.Completed : ActivityStateCode.Scheduled)));
+                            src => src.Completed.HasValue ? ActivityStateCode.Completed : ActivityStateCode.Scheduled)),
+            loggerFactory);
 
         // map task to activity
         var mapper = new Mapper(config);
