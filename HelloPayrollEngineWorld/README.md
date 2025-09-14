@@ -17,7 +17,7 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 - Connect to the Payroll API
 
 ## Notes
-- Welcome - tuorial slide
+- Welcome - tutorial slide
 	- Introduction Payroll Engine Client Services Tutorials
 		- series of tutorial videos
 	- GitLab repo: PayrollEngine.Client.Tutorials

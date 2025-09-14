@@ -16,20 +16,15 @@ namespace PayrollEngine.Client.Tutorial.WebhookConsumer.Controllers;
 [ApiController]
 [Route("[controller]")]
 [Produces("application/json")]
-public class WebhooksController : ControllerBase
+public class WebhooksController(IBackgroundJobClient backgroundJobs) : ControllerBase
 {
     // no concurrency support: demo only!
-    private static readonly List<Tuple<DateTime, object>> Messages = new();
+    private static readonly List<Tuple<DateTime, object>> Messages = [];
 
     // definitions
     private const decimal MinWage = 2000M;
 
-    public IBackgroundJobClient BackgroundJobs { get; }
-
-    public WebhooksController(IBackgroundJobClient backgroundJobs)
-    {
-        BackgroundJobs = backgroundJobs;
-    }
+    public IBackgroundJobClient BackgroundJobs { get; } = backgroundJobs;
 
     /// <summary>Get all received webhook messages</summary>
     /// <returns>The webhook messages</returns>
@@ -211,7 +206,9 @@ public class WebhooksController : ControllerBase
     /// <summary>
     /// immediate job
     /// </summary>
+#pragma warning disable IDE0051
     private void AddRecurringMessage() =>
+#pragma warning restore IDE0051
         RecurringJob.AddOrUpdate(
             "MyRecurringJob",
             () => Console.WriteLine("Recurring!"),
