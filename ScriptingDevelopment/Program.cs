@@ -13,8 +13,10 @@ internal class Program : ConsoleProgram<Program>
     // arguments
     private ReportScriptMode ScriptMode { get; } = ConsoleArguments.GetEnum<ReportScriptMode>(1);
     private string ReportName { get; } = ConsoleArguments.Get(2);
-    private string QueryFileName  { get; }= ConsoleArguments.Get(3);
+    private string QueryFileName { get; } = ConsoleArguments.Get(3);
     private string ResultFileName { get; } = ConsoleArguments.Get(4);
+
+    private Program() { }
 
     /// <summary>The scripting configuration</summary>
     private ScriptConfiguration ScriptingConfiguration =>

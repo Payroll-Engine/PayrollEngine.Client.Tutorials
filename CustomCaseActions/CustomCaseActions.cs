@@ -1,37 +1,39 @@
-using PayrollEngine.Client.Scripting;
-using PayrollEngine.Client.Scripting.Function;
 
-namespace PayrollEngine.Client.Tutorial.Scripting.CustomCaseAction;
+// ReSharper disable once CheckNamespace
+namespace PayrollEngine.Client.Scripting.Function;
 
-[ActionProvider("CustomActions", typeof(CaseChangeFunction))]
-public class MyCaseBuildActions : CaseChangeActionsBase
+public partial class CaseChangeFunction
 {
 
     #region Validate
 
     [ActionIssue("MissingUId", "Missing value (0)", 1)]
-    [ActionIssue("InvalidUId", "(0) with invalid UID (1)", 2)]
-    [CaseValidateAction("CheckUId", "Validate for the Swiss UID")]
-    public void CheckUId(CaseChangeActionContext context)
+    [ActionIssue("InvalidUId", "(0) with invalid UID: (1)", 2)]
+    [ActionParameter("caseFieldName", "The case field name")]
+    [ActionParameter("uid", "The UID text")]
+    [CaseValidateAction("CheckUId", "Validate for the Swiss company id (UID)")]
+    public void CheckUId(string caseFieldName, string uid)
     {
-        var sourceValue = GetActionValue<string>(context);
-        if (sourceValue?.ResolvedValue == null)
+        if (string.IsNullOrWhiteSpace(uid))
         {
-            AddIssue(context, "MissingUId", context.CaseFieldName);
+            AddCaseAttributeIssue("MissingUId", caseFieldName);
             return;
         }
+
+        // extract check value
+        var checkValue = uid.RemoveFromStart("CHE-").Replace(".", "");
 
         try
         {
             // ISO 7064 digit check with modulus, radix, character-set and double-check-digit option
-            new CheckDigit(11, 1, "0123456789", false).Check(sourceValue.ResolvedValue);
+            new CheckDigit(11, 1, "0123456789", false).Check(checkValue);
 
             // predefined digit checks: Mod11Radix2, Mod37Radix2, Mod97Radix10, Mod661Radix26, Mod1271Radix36
-            // CheckDigit.Mod11Radix2.Check(sourceValue.ResolvedValue);
+            // CheckDigit.Mod11Radix2.Check(checkValue);
         }
-        catch (CheckDigitException exception)
+        catch (CheckDigitException)
         {
-            AddIssue(context, "InvalidUId", context.CaseFieldName, exception.CheckValue);
+            AddCaseAttributeIssue("InvalidUId", caseFieldName, uid);
         }
     }
 
@@ -39,44 +41,18 @@ public class MyCaseBuildActions : CaseChangeActionsBase
 
     #region Build
 
-    [ActionParameter("factor", "Day factor (def=1)",
-        valueTypes: [DecimalType])]
-    [ActionParameter("roundStep", "The rounding step size (def=1)",
-        valueTypes: [DecimalType])]
-    [CaseBuildAction("DayFactor", "Value by day factor")]
-    public void DayFactor(CaseChangeActionContext context, object factor = null, object roundStep = null)
+    [ActionParameter("factor", "Day factor (def=1)")]
+    [ActionParameter("caseFieldName", "The field name")]
+    [ActionParameter("roundStep", "The rounding step size (def=1)")]
+    [CaseBuildAction("DayFactor", "Value by day factor (def=1)")]
+    public void DayFactor(string caseFieldName, decimal factor = 1, decimal roundStep = 1)
     {
         // start and end date
-        var start = context.Function.GetStart(context.CaseFieldName);
-        var end = context.Function.GetEnd(context.CaseFieldName);
+        var start = GetStart(caseFieldName);
+        var end = GetEnd(caseFieldName);
         if (!start.HasValue || !end.HasValue)
         {
             return;
-        }
-
-        // factor
-        decimal resolvedFactor = 1;
-        factor ??= 1;
-        var factorValue = GetActionValue<decimal>(context, factor);
-        if (factorValue != null && factorValue.IsFulfilled)
-        {
-            resolvedFactor = factorValue.ResolvedValue;
-            if (resolvedFactor == 0)
-            {
-                return;
-            }
-        }
-
-        // decimals
-        decimal resolvedRoundStep = 1;
-        var roundStepValue = GetActionValue<decimal>(context, roundStep ?? 1);
-        if (roundStepValue != null && roundStepValue.IsFulfilled)
-        {
-            resolvedRoundStep = roundStepValue.ResolvedValue;
-            if (resolvedRoundStep == 0)
-            {
-                return;
-            }
         }
 
         // update factor value
@@ -85,8 +61,8 @@ public class MyCaseBuildActions : CaseChangeActionsBase
         {
             return;
         }
-        var value = (days * resolvedFactor).RoundDown(resolvedRoundStep);
-        context.Function.SetValue(context.CaseFieldName, value);
+        var value = (days * factor).RoundDown(roundStep);
+        SetValue(caseFieldName, value);
     }
 
     #endregion

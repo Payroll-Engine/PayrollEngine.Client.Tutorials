@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using PayrollEngine.Client.Command;
 using PayrollEngine.Client.Model;
+using PayrollEngine.Client.Command;
 using PayrollEngine.Client.Service.Api;
 
 namespace PayrollEngine.Client.Tutorial.PayrollConsoleExtension;
@@ -64,12 +64,12 @@ internal sealed class ListTenantsCommand : CommandBase<ListTenantsParameters>
         var descending = " DESC";
         switch (parameters.Order)
         {
-            case Order.CreatedAscending:return nameof(Tenant.Created) + ascending;
-            case Order.CreatedDescending:return nameof(Tenant.Created) + descending;
-            case Order.IdentifierAscending:return nameof(Tenant.Identifier) + ascending;
-            case Order.IdentifierDescending:return nameof(Tenant.Identifier) + descending;
-            case Order.StatusAscending:return nameof(Tenant.Status) + ascending;
-            case Order.StatusDescending:return nameof(Tenant.Status) + descending;
+            case Order.CreatedAscending: return nameof(Tenant.Created) + ascending;
+            case Order.CreatedDescending: return nameof(Tenant.Created) + descending;
+            case Order.IdentifierAscending: return nameof(Tenant.Identifier) + ascending;
+            case Order.IdentifierDescending: return nameof(Tenant.Identifier) + descending;
+            case Order.StatusAscending: return nameof(Tenant.Status) + ascending;
+            case Order.StatusDescending: return nameof(Tenant.Status) + descending;
             case Order.IdAscending: return nameof(Tenant.Id) + ascending;
             case Order.IdDescending: return nameof(Tenant.Id) + descending;
             default:
