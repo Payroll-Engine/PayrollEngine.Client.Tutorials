@@ -15,7 +15,7 @@ public class PayrunTests(PayrollHttpClientFixture fixture) : PayrollTestBase(fix
         var exchange = await GetMemberResourceAsync<Model.Exchange>();
 
         // test runner
-        var testRunner = new PayrunTestRunner(HttpClient, new ScriptParser());
+        var testRunner = new PayrunTestRunner(HttpClient, new ScriptParser(), new());
         var results = await testRunner.TestAllAsync(exchange);
         var anyFailed = results.First().Value.Any(x => x.Failed);
         Assert.False(anyFailed);
@@ -28,7 +28,7 @@ public class PayrunTests(PayrollHttpClientFixture fixture) : PayrollTestBase(fix
         var exchange = await GetMemberResourceAsync<Model.Exchange>();
 
         // test runner
-        var testRunner = new PayrunTestRunner(HttpClient, new ScriptParser());
+        var testRunner = new PayrunTestRunner(HttpClient, new ScriptParser(), new());
         var results = await testRunner.TestAllAsync(exchange);
         var anyWageTypFailed = results.First().Value.Any(x => x.FailedWageTypeResult);
         Assert.True(anyWageTypFailed);
