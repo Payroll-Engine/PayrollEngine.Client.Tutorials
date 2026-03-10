@@ -1,12 +1,12 @@
 # Payroll Engine Client Tutorials - Extended object model
 
 ## Overview
-Tutorial topic: How the extend or map  the payroll model
+Tutorial topic: How to extend or map the payroll model
 
 ## Prerequisites
 - Payroll Engine Backend running with SimplePayroll
 - Visual Studio with .NET 8
-- Tutorial Create and modify objects
+- Tutorial: Create and modify objects
 
 ## Learnings
 - Custom object attribute
@@ -17,7 +17,7 @@ Tutorial topic: How the extend or map  the payroll model
 - Preparation
 	- Setup SimplePayroll
 - Welcome - tutorial slide
-	- How the extend or map the payroll model
+	- How to extend or map the payroll model
 	- Prerequisites
 	- Learnings
 - Visual Studio
@@ -53,5 +53,5 @@ Tutorial topic: How the extend or map  the payroll model
 			- map Erp id (Guid) from task attribute
 			- map state code (ActivityStateCode) from task schedule date presence
 	- Employee query
-		- employee querey by Erp Id
+		- employee query by Erp Id
 		- display employee details including the Erp Id

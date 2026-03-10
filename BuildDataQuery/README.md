@@ -6,7 +6,12 @@ Tutorial topic: Build advanced data queries
 ## Prerequisites
 - Payroll Engine Backend running with known tenant
 - Visual Studio with .NET 8
-- Client services tutorial: Console Application
+- Tutorial: Console Application
+
+## Query Parameters
+<p>
+  <img src="./QueryParameters.png" width="800px" alt="Query Parameters">
+</p>
 
 ## Learnings
 - Employees query

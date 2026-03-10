@@ -6,7 +6,7 @@ Tutorial topic: How to create a payroll client with a console application
 ## Prerequisites
 - Payroll Engine Backend running
 - Visual Studio with .NET 8
-- Client services tutorial: Hello Payroll Engine World!
+- Tutorial: Hello Payroll Engine World!
 
 ## Learnings
 - Console program template
@@ -18,7 +18,7 @@ Tutorial topic: How to create a payroll client with a console application
 
 ## Notes
 - Welcome - tutorial slide
-	- How to build an Payroll Engine console application
+	- How to build a Payroll Engine console application
 		- same function as the hello Payroll Engine world tutorial
 	- Prerequisites
 	- Learnings
@@ -45,7 +45,7 @@ Tutorial topic: How to create a payroll client with a console application
 	- Use methods in non-async mode
 		- without return value: `return Task.CompletedTask`;
 		- with return value: `return Task.FromResult(value)`;
-	- https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
+	- https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/
 - Error handling
 	- try/catch/finally
 	- minimal error handling (log, no user interaction)
@@ -53,7 +53,7 @@ Tutorial topic: How to create a payroll client with a console application
 	- nested exceptions
 		- consider root exception
 		- GetBaseException/GetBaseMessage
-	- https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/
+	- https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/
 - Logging
 	- log warnings and errors
 	- separation log creation and analysis
@@ -63,7 +63,7 @@ Tutorial topic: How to create a payroll client with a console application
 		- https://github.com/serilog/serilog/wiki/Configuration-Basics#minimum-level
 	- Serilog
 		- create log entry with level
-		- ecaluate logs with sinks
+		- evaluate logs with sinks
 			- database, azure, windows system logs
 			- send to centralized log server
 			- send critical error with Email (requires a mail server)

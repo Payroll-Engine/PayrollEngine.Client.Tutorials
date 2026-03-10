@@ -13,14 +13,14 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 ## Learnings
 - Payroll Engine Client Services
 - Minimal .NET console application
-- Payroll Engine the Payroll NuGet
+- Payroll Engine NuGet
 - Connect to the Payroll API
 
 ## Notes
 - Welcome - tutorial slide
 	- Introduction Payroll Engine Client Services Tutorials
 		- series of tutorial videos
-	- GitLab repo: PayrollEngine.Client.Tutorials
+	- GitHub repo: PayrollEngine.Client.Tutorials
 - Prerequisites
 	- Payroll Engine Backend
 		- URL
@@ -37,7 +37,7 @@ Tutorial topic: Connect to the Payroll Engine Payroll API.
 - Client Services
 	- Example of a payroll client
 	- Model, Service, Exchange and Test
-- Mininal .NET console application
+- Minimal .NET console application
 	- File > New > Project > Console App C#
 		- Name: `HelloPayrollEngineWorld`
 		- Framework: `.NET 8`

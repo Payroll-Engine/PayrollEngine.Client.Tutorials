@@ -15,7 +15,8 @@ public abstract class PayrollTestBase : IClassFixture<PayrollHttpClientFixture>
     protected PayrollTestBase(PayrollHttpClientFixture fixture)
     {
         Log.SetLogger(new PayrollLog());
-        Fixture = fixture ?? throw new ArgumentNullException(nameof(fixture));
+        ArgumentNullException.ThrowIfNull(fixture);
+        Fixture = fixture;
     }
 
     protected async Task<T> GetMemberResourceAsync<T>([CallerMemberName] string caller = null)

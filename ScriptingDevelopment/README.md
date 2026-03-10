@@ -6,7 +6,7 @@ Tutorial topic: Develop payroll reports with Visual Studio
 ## Prerequisites
 - Payroll Engine Backend running with SimplePayroll
 - Visual Studio with .NET 8
-- Tutorial Console Application
+- Tutorial: Console Application
 
 ## Learnings
 - Scripts in Visual Studio
@@ -22,12 +22,23 @@ Tutorial topic: Develop payroll reports with Visual Studio
 	- Learnings
 - Client Services
 	- Scripting Development
+<p>
+  <img src="./ClientServices.png" width="800px" alt="Client Services - Scripting Development">
+</p>
+
 - Functions
 	- Tutorial: report function
+<p>
+  <img src="./Functions.png" width="800px" alt="Script Functions">
+</p>
+
 - Reporting
 	- Build: setup report parameters
 	- Start: setup report queries
 	- End: build result data set
+<p>
+  <img src="./Reporting.png" width="800px" alt="Reporting">
+</p>
 - Application use cases
 	- Code a report in Visual Studio
 	- Debug a report in Visual Studio

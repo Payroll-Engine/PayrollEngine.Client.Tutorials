@@ -6,7 +6,12 @@ Tutorial topic: Import employee wage changes from JSON file
 ## Prerequisites
 - Payroll Engine Backend running with SimplePayroll
 - Visual Studio with .NET 8
-- Tutorial Create and modify objects
+- Tutorial: Create and modify objects
+
+## Exchange Model
+<p>
+  <img src="./ExchangeModel.png" width="800px" alt="Exchange Model">
+</p>
 
 ## Learnings
 - Read exchange model
@@ -17,7 +22,7 @@ Tutorial topic: Import employee wage changes from JSON file
 - Preparation
 	- Setup SimplePayroll
 - Welcome - tutorial slide
-	- Manage user tasks using a CSV file
+	- Import employee wage changes from JSON file
 	- Prerequisites
 	- Learnings
 - Visual Studio
@@ -29,7 +34,6 @@ Tutorial topic: Import employee wage changes from JSON file
 		- check should be also in the case validation script
 	- Create case change
 - Exchange model
-	- model overview image
 - Program usage
 	- program help
 	- command line arguments

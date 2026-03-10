@@ -9,7 +9,7 @@ Tutorial topic: Integrate the payroll test runner
 ## Prerequisites
 - Payroll Engine Backend running with known tenant
 - Visual Studio with .NET 8
-- Client services tutorial: Console Application
+- Tutorial: Console Application
 - [xunit](https://github.com/xunit)
 
 ## Learnings

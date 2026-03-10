@@ -6,7 +6,7 @@ Tutorial topic: Display tenant employees with Payroll Engine client objects and 
 ## Prerequisites
 - Payroll Engine Backend running with known tenant
 - Visual Studio with .NET 8
-- Client services tutorial: Console Application
+- Tutorial: Console Application
 
 ## Learnings
 - Client object model
@@ -51,17 +51,17 @@ Tutorial topic: Display tenant employees with Payroll Engine client objects and 
 	- Service context
 	- Get object by id
 		- cross-tenant access
-	- Get objects bi identifier/name
+	- Get objects by identifier/name
 		- Get tenant by identifier
 	- Xxx vs XxxSet objects
 		- Combine multiple requests
 		- Case vs. CaseSet, including Case Fields and Case Relations
 - Query multiple objects
 	- Enhance query performance
-	- Reduce trafic volume with less data
+	- Reduce traffic volume with less data
 	- Query with OData
 		- sort order
-		- pagging filters
+		- paging filters
 		- filtering (advanced topic)
 		- field select (advanced topic)
 		- count mode (advanced topic)
