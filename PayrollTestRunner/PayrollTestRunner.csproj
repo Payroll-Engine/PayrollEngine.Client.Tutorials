@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<IsPackable>false</IsPackable>
@@ -18,8 +18,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="PayrollEngine.Serilog" Version="0.10.0-beta.dev" />
-		<PackageReference Include="PayrollEngine.Client.Services" Version="0.10.0-beta.dev" />
+		<PackageReference Include="PayrollEngine.Serilog" Version="$(PayrollEngineVersion)" />
+		<PackageReference Include="PayrollEngine.Client.Services" Version="$(PayrollEngineVersion)" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
 		<PackageReference Include="xunit.v3" Version="3.2.2" />
 		<PackageReference Include="xunit.v3.runner.common" Version="3.2.2" />

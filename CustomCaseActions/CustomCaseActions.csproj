@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="PayrollEngine.Client.Services" Version="0.10.0-beta.dev" />
+		<PackageReference Include="PayrollEngine.Client.Services" Version="$(PayrollEngineVersion)" />
 	</ItemGroup>
 
 </Project>
