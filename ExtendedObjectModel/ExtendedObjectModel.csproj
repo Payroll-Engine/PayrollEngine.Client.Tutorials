@@ -10,10 +10,10 @@
 	<ItemGroup>
 		<PackageReference Include="PayrollEngine.Client.Services" Version="$(PayrollEngineVersion)" />
 		<PackageReference Include="PayrollEngine.Serilog" Version="$(PayrollEngineVersion)" />
-		<PackageReference Include="AutoMapper" Version="16.1.1" />
+		<PackageReference Include="AutoMapper" Version="16.2.0" />
 		<PackageReference Include="Serilog.Sinks.Async" Version="2.1.0" />
 		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.5" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.11" />
 	</ItemGroup>
 
 	<ItemGroup>
