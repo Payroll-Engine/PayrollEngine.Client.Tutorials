@@ -105,57 +105,6 @@ public class WebhooksController(IBackgroundJobClient backgroundJobs) : Controlle
         return Ok();
     }
 
-    /// <summary>Webhook payrun function request</summary>
-    /// <remarks>Request body contains the webhook message</remarks>
-    /// <param name="message">The webhook message</param>
-    /// <returns>The webhook function result</returns>
-    [HttpPost("payrunfunction")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status201Created)]
-    public ActionResult<object> PayrunFunctionRequestWebhook([FromBody][Required] WebhookRuntimeMessage message)
-    {
-        if (message == null)
-        {
-            return BadRequest("missing webhook message");
-        }
-
-        // test delay
-        //System.Threading.Tasks.Task.Delay(5000).Wait();
-
-        object functionResult = message.RequestOperation switch
-        {
-            "MinWage" => MinWage,
-            _ => null
-        };
-
-        AddMessage(message);
-        return Created(string.Empty, functionResult);
-    }
-
-    /// <summary>Webhook report function request</summary>
-    /// <remarks>Request body contains the webhook message</remarks>
-    /// <param name="message">The webhook message</param>
-    /// <returns>The webhook function result</returns>
-    [HttpPost("reportfunction")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status201Created)]
-    public ActionResult<object> ReportFunctionRequestWebhook([FromBody][Required] WebhookRuntimeMessage message)
-    {
-        if (message == null)
-        {
-            return BadRequest("missing webhook message");
-        }
-
-        object functionResult = message.RequestOperation switch
-        {
-            "MinWage" => MinWage,
-            _ => null
-        };
-
-        AddMessage(message);
-        return Created(string.Empty, functionResult);
-    }
-
     /// <summary>Webhook payroll task change</summary>
     /// <remarks>Request body contains the webhook message</remarks>
     /// <param name="message">The webhook message</param>

@@ -15,15 +15,9 @@ public enum WebhookAction
     /// <summary>Case change added</summary>
     CaseChangeAdded,
 
-    /// <summary>Payrun function request</summary>
-    PayrunFunctionRequest,
-
     /// <summary>Process payrun job</summary>
     PayrunJobProcess,
 
     /// <summary>Payrun job finished</summary>
-    PayrunJobFinish,
-
-    /// <summary>Report function request</summary>
-    ReportFunctionRequest
+    PayrunJobFinish
 }
