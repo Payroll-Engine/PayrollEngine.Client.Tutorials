@@ -84,15 +84,13 @@ internal sealed class ListTenantsCommand : CommandBase<ListTenantsParameters>
     {
         console.DisplayTitleLine("- ListTenants");
         console.DisplayTextLine("      List payroll tenants");
-        console.DisplayTextLine("      Arguments:");
-        console.DisplayTextLine("          1. text to write [Text] (optional)");
         console.DisplayTextLine("      Toggles:");
-        console.DisplayTextLine("          order by: /identifierAscending, /identifierAscending");
-        console.DisplayTextLine("                    /createdAscending, /createdAscending");
-        console.DisplayTextLine("                    /statusAscending, /statusAscending");
-        console.DisplayTextLine("                    /idAscending, /idAscending (default: identifierAscending)");
+        console.DisplayTextLine("          order by: /identifierAscending, /identifierDescending");
+        console.DisplayTextLine("                    /createdAscending, /createdDescending");
+        console.DisplayTextLine("                    /statusAscending, /statusDescending");
+        console.DisplayTextLine("                    /idAscending, /idDescending (default: identifierAscending)");
         console.DisplayTextLine("      Examples:");
         console.DisplayTextLine("          ListTenants");
-        console.DisplayTextLine("          ListTenants /byCreatedDescending");
+        console.DisplayTextLine("          ListTenants /createdDescending");
     }
 }

@@ -3,12 +3,12 @@
 	<PropertyGroup>
 		<AssemblyName>PayrollConsoleExtension</AssemblyName>
 		<RootNamespace>PayrollEngine.Client.Tutorial.PayrollConsoleExtension</RootNamespace>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<Description>Payroll Engine Console Extension Demo</Description>
 	</PropertyGroup>
 
+	<!-- contract assembly shared with the Payroll Console: not copied into the extension folder -->
 	<ItemGroup>
-		<PackageReference Include="PayrollEngine.Client.Services" Version="$(PayrollEngineVersion)" />
+		<PackageReference Include="PayrollEngine.Client.Core" Version="$(PayrollEngineVersion)" ExcludeAssets="contentFiles" />
 	</ItemGroup>
 
 </Project>
