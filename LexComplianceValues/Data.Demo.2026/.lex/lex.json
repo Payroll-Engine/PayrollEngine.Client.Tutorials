@@ -1,0 +1,54 @@
+{
+  "$schema": "https://payrollengine.org/schemas/lex/v1.json",
+  "authority": "XX",
+  "regulation": "Data.Demo",
+  "validFrom": "2026-01-01",
+  "provider": "Demo Tax Authority (fictitious)",
+  "languages": ["en"],
+  "sources": [
+    {
+      "url": "https://example.org/demo-tax-authority/payroll-rates",
+      "description": "Demo Tax Authority - Payroll Rates (fictitious)",
+      "legalBasis": "Demo Social Security Act, Demo Income Tax Act, Demo Minimum Wage Act"
+    }
+  ],
+  "values": [
+    {
+      "key": "Rates.SocialSecurityRate",
+      "content": "0.0815",
+      "unit": "rate",
+      "sourceUrls": ["https://example.org/demo-tax-authority/payroll-rates"],
+      "sourceLocation": "",
+      "legalReference": "Demo Social Security Act, section 5(1)",
+      "documentRef": "demo-rates-2026.html",
+      "description": "Employee social security rate"
+    },
+    {
+      "key": "Rates.ContributionCeiling",
+      "content": "84600",
+      "unit": "EUR",
+      "sourceUrls": ["https://example.org/demo-tax-authority/payroll-rates"],
+      "sourceLocation": "",
+      "legalReference": "Demo Social Security Act, section 6(2)",
+      "documentRef": "demo-rates-2026.html",
+      "description": "Annual contribution ceiling"
+    },
+    {
+      "key": "Rates.MinimumHourlyWage",
+      "content": "14.35",
+      "unit": "EUR",
+      "sourceUrls": ["https://example.org/demo-tax-authority/payroll-rates"],
+      "sourceLocation": "",
+      "legalReference": "Demo Minimum Wage Act, section 1(2)",
+      "documentRef": "demo-rates-2026.html",
+      "description": "Minimum hourly wage"
+    }
+  ],
+  "files": [
+    {
+      "fileName": "demo-rates-2026.html",
+      "sourceUrls": ["https://example.org/demo-tax-authority/payroll-rates"],
+      "description": "Demo Tax Authority - Payroll Rates (fictitious)"
+    }
+  ]
+}

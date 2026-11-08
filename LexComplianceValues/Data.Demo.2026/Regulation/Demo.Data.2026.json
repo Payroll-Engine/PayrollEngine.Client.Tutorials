@@ -1,0 +1,36 @@
+{
+  "createdObjectDate": "2026-01-01T00:00:00.0Z",
+  "tenants": [
+    {
+      "identifier": "Demo.Lex",
+      "regulations": [
+        {
+          "name": "Demo.Data.Rates",
+          "namespace": "Demo",
+          "description": "Fictitious payroll rates of the Lex tutorial",
+          "validFrom": "2026-01-01T00:00:00Z",
+          "lookups": [
+            {
+              "name": "Rates",
+              "description": "Payroll rates (fictitious)",
+              "values": [
+                {
+                  "key": "SocialSecurityRate",
+                  "value": "0.0815"
+                },
+                {
+                  "key": "ContributionCeiling",
+                  "value": "83100"
+                },
+                {
+                  "key": "MinimumHourlyWage",
+                  "value": "14.35"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

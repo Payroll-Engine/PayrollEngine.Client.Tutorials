@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>PayrollEngine.Client.Tutorial.LexComplianceValues</RootNamespace>
+		<Description>Payroll Engine Client Tutorial Lex Compliance Values</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="PayrollEngine.Lex" Version="$(PayrollEngineVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Data.Demo.2026\**\*" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+</Project>

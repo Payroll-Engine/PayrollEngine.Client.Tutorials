@@ -16,7 +16,7 @@ namespace PayrollEngine.Client.Tutorial.TransformReportData;
 internal class Program : ConsoleProgram<Program>
 {
     // ReSharper disable StringLiteralTypo
-    const string monthlyWageCaseFieldName = "Monatslohn";
+    const string MonthlyWageCaseFieldName = "Monatslohn";
     // ReSharper restore StringLiteralTypo
     const string MonthlyWageColumnName = "MonthlyWage";
 
@@ -84,7 +84,7 @@ internal class Program : ConsoleProgram<Program>
         // name mapping
         return caseFieldName switch
         {
-            monthlyWageCaseFieldName => MonthlyWageColumnName,
+            MonthlyWageCaseFieldName => MonthlyWageColumnName,
             _ => caseFieldName
         };
     }
@@ -105,7 +105,7 @@ internal class Program : ConsoleProgram<Program>
                     .Parameter(nameof(payrollId), payrollId)
                     .Parameter(nameof(employeeId), employeeId)
                     .Parameter("CaseType", "Employee")
-                    .Parameter("CaseFieldNames", new[] { monthlyWageCaseFieldName })
+                    .Parameter("CaseFieldNames", new[] { MonthlyWageCaseFieldName })
                     .Parameter(nameof(valueDate), valueDate)))
                 .ToSystemDataTable();
 

@@ -26,3 +26,4 @@ The documentation can be downloaded as a zip file from the [Release](https://git
 | [CustomCaseActions](CustomCaseActions/)                | Build a custom case action                     |
 | [PayrollConsoleExtension](PayrollConsoleExtension/)    | Custom command for the payroll console         |
 | [WebhookConsumer](WebhookConsumer/)                    | Consume and delegate webhooks                  |
+| [LexComplianceValues](LexComplianceValues/)            | Trace compliance values to their sources       |
