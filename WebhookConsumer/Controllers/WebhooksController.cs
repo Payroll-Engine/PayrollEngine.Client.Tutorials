@@ -8,6 +8,7 @@ using System.Text.Json;
 using Hangfire;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 // ReSharper disable All
 
@@ -16,7 +17,8 @@ namespace PayrollEngine.Client.Tutorial.WebhookConsumer.Controllers;
 [ApiController]
 [Route("[controller]")]
 [Produces("application/json")]
-public class WebhooksController(IBackgroundJobClient backgroundJobs) : ControllerBase
+[ServiceFilter(typeof(WebhookSignatureFilter))]
+public class WebhooksController(IBackgroundJobClient backgroundJobs, IConfiguration configuration) : ControllerBase
 {
     // no concurrency support: demo only!
     private static readonly List<Tuple<DateTime, object>> Messages = [];
@@ -56,7 +58,22 @@ public class WebhooksController(IBackgroundJobClient backgroundJobs) : Controlle
         };
 
         AddMessage(message);
-        return Created(string.Empty, functionResult);
+
+        // the signature covers the response bytes: serialize the result here instead of by the output formatter
+        var body = JsonSerializer.Serialize(functionResult);
+        var secret = configuration[WebhookSignatureFilter.SecretKey];
+        if (!string.IsNullOrWhiteSpace(secret))
+        {
+            Response.Headers[WebhookSignature.ResponseSignatureHeader] = WebhookSignature.SignResponse(secret,
+                Request.Headers[WebhookSignature.TimestampHeader],
+                Request.Headers[WebhookSignature.SignatureHeader], body);
+        }
+        return new ContentResult
+        {
+            StatusCode = StatusCodes.Status201Created,
+            Content = body,
+            ContentType = "application/json"
+        };
     }
 
     /// <summary>
